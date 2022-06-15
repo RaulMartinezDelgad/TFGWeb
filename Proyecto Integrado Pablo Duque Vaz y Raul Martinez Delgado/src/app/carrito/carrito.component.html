@@ -1,0 +1,40 @@
+<body>
+
+
+    <div class="row" *ngFor="let producto of productosFav">
+        <div class="col" id="items_carrito">
+            <div class="col s6"><img class="img-fluid" src="{{ producto.url }}"></div>
+            <div class="col s6">
+                <div class="row text-muted" id="carr" style="font-weight: bold;">{{ producto.nombre }}</div>
+                <div class="row" id="carr">{{ producto.descripcion }}</div>
+            </div>
+            <div class="col s6">
+                <div class="quantity">
+                    <input type="number" min="1" max="9" step="1" (click)="setCantidad(producto)"
+                        [(ngModel)]="producto.cantidadCompra">
+                </div>
+            </div>
+            <div class="col s12 l4" id="carr">{{ producto.precioTotal }}€ &nbsp;
+                &nbsp;
+                <span class="close"
+                    (click)="fav(producto)">&#10005;</span></div>
+        </div>
+    </div>
+
+
+    <div class="col s12 center  " id="carr">
+        <div class="row">
+            <div class="offset-s1 col" style="padding-left:0;">{{ productosFav.length }} Precio:</div>
+            <div class="col text-right">&euro; {{ total }}</div>
+        </div>
+
+        <div class="col">PRECIO TOTAL </div>
+        <div class="col text-right">&euro; {{ total }}</div>
+
+        <button class="btn" id="carr" onclick="M.toast({html: 'Compra realizada correctamente'})" routerLink="/producto">Finalizar compra</button>
+    </div>
+    
+    <br><br>
+
+    <app-footer></app-footer>
+</body>

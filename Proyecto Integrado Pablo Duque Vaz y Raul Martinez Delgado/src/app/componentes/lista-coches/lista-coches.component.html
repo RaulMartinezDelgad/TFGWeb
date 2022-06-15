@@ -1,0 +1,60 @@
+<body>
+
+    <br><br><br>
+
+
+    <div class="list row">
+        <div class="col-md-8">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Buscar por marca" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" (click)="buscarMarca()">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Lista de coches</h4>
+            <ul class="list-group">
+                <li class="list-group-item" id="coche" *ngFor="let coche of coches; let i = index"
+                    [class.active]="i == indiceActual" (click)="setCocheActivo(coche, i)">
+                    {{ coche.marca }} <hr>
+                </li>
+            </ul>
+            <button class="m-3 btn btn-sm btn-danger" (click)="eliminarTodosCoches()">
+
+                Eliminar todo
+            </button>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="cocheActual.id">
+                <h4>Coche</h4>
+                <div>
+                    <label><strong>Marca:</strong></label>
+                    {{ cocheActual.marca }}
+                </div>
+                <div>
+                    <label><strong>Modelo:</strong></label>
+                    {{ cocheActual.modelo }}
+                </div>
+                <div>
+                    <label><strong>Precio:</strong></label>
+                    {{ cocheActual.precio }}
+                </div>
+                <a class="badge badge-warning" routerLink="/coches/{{ cocheActual.id }}">
+
+                    Editar
+                </a>
+            </div>
+            <div *ngIf="!cocheActual">
+                <br />
+                <p>Por favor, seleccione un coche...</p>
+
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <app-footer></app-footer>
+
+</body>

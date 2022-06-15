@@ -1,0 +1,16 @@
+.submit-form {
+    max-width: 400px;
+    margin: auto;
+
+}
+
+body {
+    background-image: url(https://i.pinimg.com/originals/04/21/69/042169550c4d4c70f2ed06d381b3426b.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    margin: 0;
+  }
+  
+  input {
+    color: white;
+  }

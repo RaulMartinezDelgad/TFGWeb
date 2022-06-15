@@ -1,0 +1,38 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+<div id="app">
+  <nav class="black">
+    <a href="#" class="left hide-on-med-and-down navbar-brand"><img width="70" height="65" src="./assets/logo.png"></a>
+
+    <ul class="left hide-on-med-and-down">
+      <li><a routerLinkActive="active" href="/home" class="nav-link" routerLink="home">Inicio</a></li>
+      <li><a routerLinkActive="active" class="nav-link" *ngIf="isLoggedIn" routerLink="/producto">Productos</a></li>
+      <li><a routerLinkActive="active" class="nav-link" *ngIf="isLoggedIn" routerLink="/carrito">Carrito</a></li>
+      <li><a routerLinkActive="active" href="/coches" class="nav-link" *ngIf="showAdminBoard" routerLink="coches">Administracion Coches</a></li>
+      <li><a routerLinkActive="active" routerLink="agregar" class="nav-link" *ngIf="showAdminBoard">Agregar</a></li>
+    </ul>
+
+    <ul class="right hide-on-med-and-down" *ngIf="!isLoggedIn">
+      <li><a routerLinkActive="active" href="/register" class="nav-link" routerLink="register">Registrarse</a></li>
+      <li><a routerLinkActive="active" href="/login" class="nav-link" routerLink="login">Iniciar sesión</a></li>
+    </ul>
+
+
+
+    <ul class="right hide-on-med-and-down" *ngIf="isLoggedIn">
+      <li><a routerLinkActive="active" href="/profile" class="nav-link" routerLink="profile">{{ username }}</a></li>
+      <li><a routerLinkActive="active" href class="nav-link" (click)="logout()">Cerrar sesion</a></li>
+    </ul>
+  </nav>
+
+
+
+
+</div>
+
+<router-outlet></router-outlet>
